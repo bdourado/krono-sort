@@ -1,0 +1,3 @@
+Pillow
+pi-heif
+tqdm
