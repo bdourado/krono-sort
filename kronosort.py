@@ -67,7 +67,7 @@ def get_unique_path(target_path):
 def process_zip(zip_path, dest_path):
     """Processes a single ZIP file."""
     try:
-        with zipfile.ZipFile(zip_path, 'r') as zf:
+        with zipfile.ZipFile(zip_path, 'r', allowZip64=True) as zf:
             # Filter entries
             entries = [
                 info for info in zf.infolist() 
