@@ -97,7 +97,7 @@ def process_zip(zip_path, dest_path):
                 if date:
                     target_folder = dest_path / str(date.year) / f"{date.month:02d}"
                 else:
-                    target_folder = dest_path / "Outros"
+                    target_folder = dest_path / "Others"
 
                 target_folder.mkdir(parents=True, exist_ok=True)
                 target_file_path = get_unique_path(target_folder / filename)

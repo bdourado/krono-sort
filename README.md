@@ -1,31 +1,31 @@
 # ⏳ KronoSort
 
-**KronoSort** é uma poderosa ferramenta de automação multiplataforma desenvolvida em Python para organizar exportações de mídia bagunçadas (como o Google Takeout) em uma estrutura de pastas limpa e cronológica.
+**KronoSort** is a powerful, cross-platform Python automation tool designed to organize messy media exports (like Google Takeout) into a clean, chronological folder structure.
 
-## 🚀 Funcionalidades
+## 🚀 Features
 
-- **Multiplataforma**: Funciona perfeitamente em Windows e Linux usando `pathlib`.
-- **Detecção Inteligente de Data**:
-  - **1ª Prioridade**: Metadados EXIF (`DateTimeOriginal`).
-  - **2ª Prioridade**: Regex no nome do arquivo (Detecta `YYYYMMDD` ou `YYYY-MM-DD`).
-  - **Fallback**: Move arquivos não identificados para uma pasta chamada `Outros`.
-- **Gerenciamento Robusto de Arquivos**:
-  - **Prevenção de Colisão**: Renomeia arquivos automaticamente com sufixos numéricos se já existir um arquivo com o mesmo nome no destino.
-  - **Suporte a Formatos**: Processa `.jpg`, `.jpeg`, `.png`, `.heic`, `.mp4`, `.mov`.
-  - **Suporte HEIC**: Integrado com `pi-heif` para formatos de foto modernos de iPhone.
-- **Leitura Direta de ZIP**: Processa arquivos sem necessidade de extração manual prévia.
-- **Fácil de Usar**: Acompanhamento de progresso em tempo real com `tqdm`.
+- **Multi-Platform**: Works pipe-clean on Windows and Linux using `pathlib`.
+- **Smart Date Detection**:
+  - **1st Priority**: EXIF Metadata (`DateTimeOriginal`).
+  - **2nd Priority**: Filename Regex (Detects `YYYYMMDD` or `YYYY-MM-DD`).
+  - **Fallback**: Moves unidentified files to an `Others` folder.
+- **Robust File Management**:
+  - **Collision Prevention**: Automatically renames files with numeric suffixes if a duplicate filename exists in the destination.
+  - **Format Support**: Processes `.jpg`, `.jpeg`, `.png`, `.heic`, `.mp4`, `.mov`.
+  - **HEIC Support**: Integrated `pi-heif` for modern iPhone photo formats.
+- **Direct ZIP Reading**: Processes files directly without the need for prior manual extraction.
+- **User Friendly**: Real-time progress tracking with `tqdm`.
 
-## 🛠️ Instalação
+## 🛠️ Installation
 
-Como as versões modernas do Linux (Debian/Ubuntu) protegem o ambiente do sistema, recomendamos o uso de um ambiente virtual (**venv**):
+As modern Linux versions (Debian/Ubuntu) protect the system's Python environment, we recommend using a virtual environment (**venv**):
 
-1. **Clone ou baixe** os arquivos para sua máquina.
-2. **Crie o ambiente virtual**:
+1. **Clone or download** the files to your machine.
+2. **Create the virtual environment**:
    ```bash
    python3 -m venv venv
    ```
-3. **Ative o ambiente**:
+3. **Activate the environment**:
    - **Linux/macOS**:
      ```bash
      source venv/bin/activate
@@ -34,28 +34,28 @@ Como as versões modernas do Linux (Debian/Ubuntu) protegem o ambiente do sistem
      ```bash
      .\venv\Scripts\activate
      ```
-4. **Instale as dependências**:
+4. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-## 📖 Uso
+## 📖 Usage
 
-Execute o script e siga as instruções:
+Run the script and follow the instructions:
 
 ```bash
 python kronosort.py
 ```
 
-- **Caminho de Origem**: Pode ser um único arquivo `.zip` ou uma pasta contendo vários arquivos `.zip` do Google Takeout.
-- **Caminho de Destino**: Onde você deseja que as pastas `Ano/Mês/` sejam criadas.
+- **Source Path**: Can be a single `.zip` file or a folder containing multiple Google Takeout `.zip` files.
+- **Destination Path**: Where you want the `Year/Month/` folders to be created.
 
-O script lerá os arquivos diretamente dos ZIPs sem precisar de extração manual prévia!
+The script will read the files directly from the ZIPs!
 
-## 📂 Exemplo de Saída
+## 📂 Example Output
 
 ```text
-Destino/
+Destination/
 ├── 2023/
 │   ├── 01/
 │   │   └── photo_01.jpg
@@ -64,12 +64,12 @@ Destino/
 ├── 2024/
 │   └── 05/
 │       └── image_1.png
-└── Outros/
+└── Others/
     └── unknown_file.heic
 ```
 
-## ⚖️ Licença
-MIT License - Sinta-se à vontade para usar e modificar!
+## ⚖️ License
+MIT License - Feel free to use and modify!
 
 ---
-Desenvolvido com ❤️ para facilitar a organização de memórias digitais.
+Developed with ❤️ to facilitate the organization of digital memories.
