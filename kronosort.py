@@ -13,6 +13,9 @@ from tqdm import tqdm
 # Register HEIF support for Pillow
 pillow_heif.register_heif_opener()
 
+# Disable DecompressionBomb warning for large images
+Image.MAX_IMAGE_PIXELS = None
+
 # Configuration
 SOURCE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.heic', '.mp4', '.mov'}
 IGNORE_EXTENSIONS = {'.json', '.html', '.txt'}
@@ -94,7 +97,13 @@ def process_zip(zip_path, dest_path):
                     date = get_regex_date(filename)
                 
                 # Determine target folder
-                if date:
+                if filename.startswith("FB_IMG_"):
+                    target_folder = dest_path / "Facebook"
+                elif filename.startswith("Screenshot_"):
+                    target_folder = dest_path / "Screenshot"
+                elif filename.startswith("Screenrecorder") or filename.startswith("Screen_Recording"):
+                    target_folder = dest_path / "Screenrecorder"
+                elif date:
                     target_folder = dest_path / str(date.year) / f"{date.month:02d}"
                 else:
                     target_folder = dest_path / "Others"

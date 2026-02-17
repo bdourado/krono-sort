@@ -7,7 +7,11 @@
 - **Multi-Platform**: Works pipe-clean on Windows and Linux using `pathlib`.
 - **Smart Date Detection**:
   - **1st Priority**: EXIF Metadata (`DateTimeOriginal`).
-  - **2nd Priority**: Filename Regex (Detects `YYYYMMDD` or `YYYY-MM-DD`).
+  - **2nd Priority**: Special Folder Routing:
+    - `FB_IMG_` -> `Facebook/`
+    - `Screenshot_` -> `Screenshot/`
+    - `Screenrecorder` / `Screen_Recording` -> `Screenrecorder/`
+  - **3rd Priority**: Filename Regex (Detects `YYYYMMDD` or `YYYY-MM-DD`).
   - **Fallback**: Moves unidentified files to an `Others` folder.
 - **Robust File Management**:
   - **Collision Prevention**: Automatically renames files with numeric suffixes if a duplicate filename exists in the destination.
@@ -61,6 +65,12 @@ Destination/
 │   │   └── photo_01.jpg
 │   └── 12/
 │       └── video_holiday.mp4
+├── Facebook/
+│   └── FB_IMG_12345.jpg
+├── Screenshot/
+│   └── Screenshot_2023.png
+├── Screenrecorder/
+│   └── Screenrecorder-2023.mp4
 ├── 2024/
 │   └── 05/
 │       └── image_1.png
